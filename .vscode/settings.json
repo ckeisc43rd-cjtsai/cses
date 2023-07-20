@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "xstddef": "cpp"
+        "xstddef": "cpp",
+        "queue": "cpp"
     }
 }
