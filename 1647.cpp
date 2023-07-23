@@ -31,8 +31,9 @@ struct segtree{
         for(int i=t+L; i>0; i/=2) v[i]+=d;
     }
     void setmodify(int t, int d){
-        int tmp=v[t+L]-d;
-        for(int i=t+L; i>0; i/=2) v[i]-=tmp;
+        v[t+L]=d;
+        if(v[t+L]>d) for(int i=t+L; i>0; i/=2) v[i]=max(d, v[i]);
+        else for(int i=t+L; i>0; i/=2) v[i]=min(d, v[i]);
     }
 
     int query(int l, int r){
@@ -61,7 +62,8 @@ int main(){
     cin>>n>>m;
     segtree st(n);
     for(int i=0; i<m; i++){
-        int a, b;cin>>a>>b;
-        cout<<st.query(a-1, b)<<'\n';
+        int a, b, c;cin>>a>>b>>c;
+        if(a==2)cout<<st.query(b-1, c)<<'\n';
+        else st.setmodify(b-1, c);
     }
 }
