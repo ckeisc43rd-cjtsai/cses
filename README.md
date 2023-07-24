@@ -5,5 +5,5 @@
 - RUBY IS YUCKY
 - I LOVE __int128_t
 ## DAILY
-- 7/23 30AC
-- 7/24 44AC
+- 7/23 30 AC
+- 7/24 46 AC
