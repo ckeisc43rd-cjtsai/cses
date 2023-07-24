@@ -20,6 +20,9 @@ int pow(int a, int b){
         return (tmp*tmp)%modd;
     }return 0;
 }
+/*
+THIS QUESTION IS THE APPLICATION OF BURNSIDE LEMMA
+*/
 signed main(){
     ios_base::sync_with_stdio(false);cin.tie(0);
     int n;cin>>n;
