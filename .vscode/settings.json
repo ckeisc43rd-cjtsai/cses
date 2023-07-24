@@ -3,5 +3,6 @@
         "xstddef": "cpp",
         "queue": "cpp",
         "vector": "cpp"
-    }
+    },
+    "explorer.excludeGitIgnore": true
 }
