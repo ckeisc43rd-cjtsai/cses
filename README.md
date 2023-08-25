@@ -1,6 +1,6 @@
 # cses
-# CURRENT PROGRESS: 69/300(8/16)
-# GOAL: 150 before the end of summer vacation
+# CURRENT PROGRESS: 72/300(8/24)
+# GOAL: 150
 - an repository for solving cses problems on different devices
 - RUBY IS YUCKY
 - \\\\\\__int128_t///
@@ -15,3 +15,4 @@
 - 8/2  62 AC 
 - 8/3 65 AC
 - 8/16 69 AC
+- 8/24 72 AC
