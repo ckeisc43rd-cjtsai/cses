@@ -7,6 +7,7 @@
 - why d hell would burnside lemma exist in cses
 - path on grid is so annoying
 - why is everything one-based???
+- hooray
 ## DAILY
 - 7/23 30 AC
 - 7/24 46 AC
