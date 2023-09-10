@@ -40,36 +40,15 @@ signed main(){
 			ijk.push({dis[x], x});
 		}
 	}
-	ijk.push({0, n});
-	while(!ijk.empty()){
-		pii tmp=ijk.top();ijk.pop();
-		int tpp=tmp.ss;
-		if(vis2[tpp]) continue;
-		vis2[tpp]=1;
-		for(int x:adj2[tpp]){
-			if(dis2[x]<=dis2[tpp]-1) continue;
-			dis2[x]=dis2[tpp]-1;
-			ijk.push({dis2[x], x});
-		}
-	}
-	int mini=INT32_MAX, ind;
-	for(int i=1; i<=n; i++){
-		if(dis[i]<1&&dis2[i]<1){
-			if(dis[i]+dis2[i]<mini){
-				mini=dis[i]+dis2[i];
-				ind=i;
-			}
-		}
-	}
-	if(mini==INT32_MAX){
+	if(dis[n]>0){
 		cout<<"IMPOSSIBLE";
 		return 0;
 	}
 	deque<int> dq;
-	dq.push_back(ind);
-	int cur=ind;
-	cout<<dis[cur]<<' '<<dis2[cur];
-	return 0;
+	dq.push_back(n);
+	int cur=n;
+	//cout<<dis[cur]<<' '<<dis2[cur];
+	//return 0;
 	while(cur!=1){
 		if(cur==1) break;
 		for(int x:adj2[cur]){
@@ -78,20 +57,8 @@ signed main(){
 				cur=x;
 				break;
 			}
-		}
+		}cout<<cur;cout.flush();
 		if(cur==1) break;
-	}
-	cur=ind;
-	while(cur!=n){
-		if(cur==n) break;
-		for(int x:adj[cur]){
-			if(dis2[cur]==dis2[x]-1){
-				dq.push_back(x);
-				cur=x;
-				break;
-			}
-		}
-		if(cur==n) break;
 	}
 	cout<<dq.size()<<'\n';
 	for(int x:dq){
