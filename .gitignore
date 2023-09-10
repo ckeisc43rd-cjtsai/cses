@@ -1,6 +1,5 @@
-# Ignore all
-*
 
+*
 # Unignore all with extensions
 !*.*
 
@@ -20,3 +19,6 @@ bin/
 
 # Unignore all `.exe` in `bin` dir
 !*/bin/*.exe
+
+a.out
+*.out
