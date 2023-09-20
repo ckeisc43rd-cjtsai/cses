@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+#include <stack>
 #define pii pair<int, int>
 #define ff first
 #define ss second
@@ -18,13 +19,13 @@ signed main(){
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
-    queue<int> dfs;
+    stack<int> dfs;
     dfs.push(1);
     pa[1]=-1;
     int end=0;
     int balala;
     while(!dfs.empty()){
-        int tmp=dfs.front();dfs.pop();
+        int tmp=dfs.top();dfs.pop();
         for(int x:adj[tmp]){
             if(x==pa[tmp]) continue;
             if(pa[x]){
