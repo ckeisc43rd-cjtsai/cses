@@ -2,11 +2,11 @@
 #define pb push_back
 using namespace std;
 
-vector<int> pa(100007, 0);
+//vector<int> pa(100007, 0);
 vector<vector<int>> adj(100007);
 vector<int> ans;
 bool u=true;
-void solve(int x){
+void solve(int x, vector<int> &pa){
 	//for(int i=1; i<6; i++ ) cout<<pa[i]<<' ';
 	if(!u) return;
 	u=false;
@@ -18,7 +18,7 @@ void solve(int x){
 	}
 }
 
-void dfs(int x, int par){
+void dfs(int x, int par, vector<int> &pa){
 	if(pa[x]) return;
 	pa[x]=par;
 	//cout<<x<<": ";
@@ -26,9 +26,9 @@ void dfs(int x, int par){
 	for(int tmp:adj[x]){
 		//cout<<tmp<<' ';
 		if(tmp==par) continue;
-		if(pa[tmp]) {pa[tmp]=x;solve(tmp);break;}
+		if(pa[tmp]) {pa[tmp]=x;solve(tmp, pa);break;}
 		//pa[tmp]=x;
-		dfs(tmp, x);
+		dfs(tmp, x, pa);
 	}
 }
 
@@ -39,16 +39,17 @@ signed main(){
 	for(int i=0; i<m; i++){
 	 	int a, b;cin>>a>>b;
 		adj[a].push_back(b);
-		adj[b].push_back(a);
+		//adj[b].push_back(a);
 	}
 	//pa[1]=1;
 	for(int i=1; i<=n; i++){
-		dfs(i, i);
+		vector<int> pa(100007, 0);
+		dfs(i, i, pa);
 	}
 	if(ans.size()==0){
 		cout<<"IMPOSSIBLE";
 	}else{
 		cout<<ans.size()<<'\n';
-		for(int x:ans) cout<<x<<' ';
+		for(int i=ans.size()-1; i>=0; i--) cout<<ans[i]<<' ';
 	}
 }
