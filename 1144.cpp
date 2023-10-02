@@ -7,16 +7,16 @@
 #define ff first
 #define ss second
 #define int long long
-
+ 
 using namespace std;
-#define MAXN (int)2e5+7
+const int MAXN=(int)2e5+7;
 vector<int> ori(MAXN);
-vector<int> v(4*MAXN, 0);
+vector<int> v(2*MAXN, 0);
 struct segtree{
     int L=MAXN;
-    segtree(int re){
+    segtree(int n, int re){
         for(int i=0; i<re; i++){
-            int a;cin>>a;v[a+L]++;
+            int a;cin>>a;v[a+n]++;
             ori[i]=a;
         }
         for(int i=n-1; i>0; i--){
@@ -30,7 +30,7 @@ struct segtree{
         int tmp=v[t+L]-d;
         for(int i=t+L; i>0; i/=2) v[i]-=tmp;
     }
-
+ 
     int sumquery(int l, int r){
         int ans=0;
         for(int dl=l+L, dr=r+L; dl<dr; dl/=2, dr/=2){
@@ -65,11 +65,11 @@ struct segtree{
         for(int i=1; i<2*L; i++) cout<<v[i]<<'\n';
     }
 };
-
+ 
 signed main(){
     ios_base::sync_with_stdio(false);cin.tie(0);
     int n, m;cin>>n>>m;
-    segtree st(n);
+    segtree st(MAXN, n);
     for(int i=0; i<m; i++){
         char ss;cin>>ss;
         if(ss=='!'){
@@ -83,3 +83,4 @@ signed main(){
         }
     }
 }
+
