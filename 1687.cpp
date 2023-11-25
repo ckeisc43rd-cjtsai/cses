@@ -4,6 +4,13 @@ int n, q;
 vector<vector<int>> tel(200007);
 vector<vector<int>> ans(23, vector<int>(200007, -1));
 int pow2[40];
+
+int query(int x, int y){
+	for(int i=22; i>=0; i++){
+
+	}
+}
+
 signed main(){
 	ios_base::sync_with_stdio(false);cin.tie(0);
 	pow2[0]=1;

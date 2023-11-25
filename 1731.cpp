@@ -11,7 +11,7 @@ struct trie{
 	}
 };
 trie* root = new trie();
-
+ 
 void insert(string s){
 	trie* tmp = root;
 	for(int i=s.size()-1; i>=0; i--){
@@ -36,9 +36,9 @@ void query(int e){
 			dp[tpe]%=modd;
 		}tpe--;
 	}
-
+ 
 }
-
+ 
 signed main(){
 	cin>>ans;
 	int n;cin>>n; 
